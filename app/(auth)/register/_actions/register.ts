@@ -1,5 +1,6 @@
 "use server"
 
+import { redirect } from "next/navigation"
 import db from "../../../../lib/db"
 import { hashSync } from "bcrypt-ts"
 
@@ -31,5 +32,6 @@ export default async function register(FormData: FormData) {
             password: hashSync( password)
         }
     })
-    console.log({name, email, password})
+    redirect("/")
 }
+
